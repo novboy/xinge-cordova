@@ -1,7 +1,7 @@
 var exec = require("cordova/exec");
-var Xinge = function(){};
+var xingeExports = {};
 
-Xinge.prototype.register = function (successCallback, errorCallback, account) {
+xingeExports.register = function (successCallback, errorCallback, account) {
     this.successCallback = successCallback;
     
     if (errorCallback == null) {
@@ -10,26 +10,39 @@ Xinge.prototype.register = function (successCallback, errorCallback, account) {
     }
 
     if (typeof successCallback != "function") {
-        console.log("Push.register failure: onNotification callback parameter must be a function");
+        console.log("Xinge.register failure: onNotification callback parameter must be a function");
         return;
     }
 
-    cordova.exec(successCallback, errorCallback, "Xinge", "registerPush", [account]);
+    cordova.exec(successCallback, errorCallback, "Xinge", "register", [account]);
 };
 
 
-Xinge.prototype.unregister = function (successCallback, errorCallback) {
+xingeExports.unregister = function (successCallback, errorCallback) {
     if (errorCallback == null) {
         errorCallback = function () {
         }
     }
 
     if (typeof successCallback != "function") {
-        console.log("Push.unregister failure: success callback parameter must be a function");
+        console.log("Xinge.unregister failure: success callback parameter must be a function");
         return;
     }
 
-    cordova.exec(successCallback, errorCallback, "Xinge", "unregisterPush", []);
+    cordova.exec(successCallback, errorCallback, "Xinge", "unregister", []);
+};
+xingeExports.configure = function (successCallback, errorCallback,accessId,accessKey,debug) {
+    if (errorCallback == null) {
+        errorCallback = function () {
+        }
+    }
+
+    if (typeof successCallback != "function") {
+        console.log("Xinge.unregister failure: success callback parameter must be a function");
+        return;
+    }
+	
+    cordova.exec(successCallback, errorCallback, "Xinge", "configure", [accessId,accessKey,debug]);
 };
 
-module.exports = new Xinge();
+module.exports = xingeExports;

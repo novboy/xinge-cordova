@@ -8,6 +8,7 @@ import org.json.JSONException;
 import android.util.Log;
 
 import com.tencent.android.tpush.XGIOperateCallback;
+import com.tencent.android.tpush.XGPushConfig;
 import com.tencent.android.tpush.XGPushManager;
 
 public class Xinge extends CordovaPlugin {
@@ -20,16 +21,30 @@ public class Xinge extends CordovaPlugin {
      * @return                  A PluginResult object with a status and message.
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-    	 if ("registerPush".equals(action)) {
+    	Log.d("TPush", "execute action"+action);
+    	 if ("register".equals(action)) {
              //this.beep(args.getLong(0));
     		 String account = args.getString(0);
-             return registerPush(account,callbackContext);
-         }else if("unregisterPush".equals(action)) {
-        	 return	unregisterPush(callbackContext);
+             return register(account,callbackContext);
+         }else if("unregister".equals(action)) {
+        	 return	unregister(callbackContext);
+         }else if("configure".equals(action)) {
+        	 Long accessId = args.getLong(0);
+        	 String accessKey = args.getString(1);
+        	 boolean debug = args.getBoolean(2);
+        	 return	configure(accessId,accessKey,debug,callbackContext);
          }
          return false;  // Returning false results in a "MethodNotFound" error.
     }
-    public boolean registerPush(String account,final CallbackContext callbackContext) {
+    public boolean configure(Long accessId,String accessKey,boolean debug,final CallbackContext callbackContext) {
+    	XGPushConfig.setAccessId(this.cordova.getActivity(), accessId);
+    	XGPushConfig.setAccessKey(this.cordova.getActivity(), accessKey);
+    	XGPushConfig.enableDebug(this.cordova.getActivity(), debug);
+    	callbackContext.success();
+    	return true;
+    }
+    public boolean register(String account,final CallbackContext callbackContext) {
+    	XGPushManager.unregisterPush(this.cordova.getActivity());
     	XGPushManager.registerPush(this.cordova.getActivity(), account,
     			new XGIOperateCallback() {
     				@Override
@@ -45,7 +60,7 @@ public class Xinge extends CordovaPlugin {
     			});
     	return true;
     }
-    public boolean unregisterPush(final CallbackContext callbackContext) {
+    public boolean unregister(final CallbackContext callbackContext) {
     	XGPushManager.unregisterPush(this.cordova.getActivity());
     	callbackContext.success();
     	Log.d("TPush", "unregister push sucess");

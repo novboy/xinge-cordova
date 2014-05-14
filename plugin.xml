@@ -3,17 +3,17 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="org.apache.cordova.xinge"
-    version="0.2.8">
+    version="2.1.3">
     <name>Xinge</name>
     <description>Cordova Xinge Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,xinge</keywords>
+    <keywords>cordova,xinge,tencent</keywords>
     <repo>https://github.com/hroze/xinge-cordova.git</repo>
     <issue></issue>
 
 
     <js-module src="www/Xinge.js" name="Xinge">
-        <clobbers target="xinge" />
+        <clobbers target="Xinge" />
     </js-module>
 
     
@@ -50,8 +50,8 @@
 				</intent-filter>
 			</receiver>
 			<service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushService" android:process=":xg_service_v2" />
-			<meta-data android:name="XG_V2_ACCESS_ID" android:value="2100026830" />
-			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="AR41A6HJ4L4Z" />
+			<meta-data android:name="XG_V2_ACCESS_ID" android:value="2100026961" />
+			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="A1M83A42GWGR" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
 			<uses-permission android:name="android.permission.INTERNET" />
