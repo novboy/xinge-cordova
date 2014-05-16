@@ -3,11 +3,11 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="org.apache.cordova.xinge"
-    version="2.1.3">
+    version="0.2.8">
     <name>Xinge</name>
     <description>Cordova Xinge Plugin</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,xinge,tencent</keywords>
+    <keywords>cordova,xinge</keywords>
     <repo>https://github.com/hroze/xinge-cordova.git</repo>
     <issue></issue>
 
@@ -49,6 +49,14 @@
 					<data android:scheme="file" />
 				</intent-filter>
 			</receiver>
+			<receiver android:name="org.apache.cordova.xinge.XGPushCordovaReceiver" >
+				<intent-filter>
+					<!-- message  -->
+					<action android:name="com.tencent.android.tpush.action.PUSH_MESSAGE" />
+					<!-- other event -->
+					<action android:name="com.tencent.android.tpush.action.FEEDBACK" />
+				</intent-filter>
+			</receiver>
 			<service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushService" android:process=":xg_service_v2" />
 			<meta-data android:name="XG_V2_ACCESS_ID" android:value="2100026961" />
 			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="A1M83A42GWGR" />
@@ -74,6 +82,7 @@
         </config-file>
 
         <source-file src="src/android/Xinge.java" target-dir="src/org/apache/cordova/xinge" />
+		<source-file src="src/android/XGPushCordovaReceiver.java" target-dir="src/org/apache/cordova/xinge" />
 		<source-file src="src/android/libs/httpmime-4.1.1.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/mid-1.0.0.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs/" />
