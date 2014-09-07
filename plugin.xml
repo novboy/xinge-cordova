@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="org.apache.cordova.xinge"
-    version="0.2.8">
+    version="2.31.0">
     <name>Xinge</name>
     <description>Cordova Xinge Plugin</description>
     <license>Apache 2.0</license>
@@ -84,13 +84,17 @@
         <source-file src="src/android/Xinge.java" target-dir="src/org/apache/cordova/xinge" />
 		<source-file src="src/android/XGPushCordovaReceiver.java" target-dir="src/org/apache/cordova/xinge" />
 		<source-file src="src/android/libs/httpmime-4.1.1.jar" target-dir="libs/" />
-		<source-file src="src/android/libs/mid-1.0.0.jar" target-dir="libs/" />
+		<source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs/" />
-		<source-file src="src/android/libs/Xg_sdk_v2.20.jar" target-dir="libs/" />
+		<source-file src="src/android/libs/Xg_sdk_v2.31.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86/" />
+		<source-file src="src/android/libs/x86/libtpnsWatchdog.so" target-dir="libs/x86/" />
 		<source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips/" />
+		<source-file src="src/android/libs/mips/libtpnsWatchdog.so" target-dir="libs/mips/" />
 		<source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a/" />
+		<source-file src="src/android/libs/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a/" />
 		<source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi/" />
+		<source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi/" />
 
      </platform>
 
