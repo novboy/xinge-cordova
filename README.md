@@ -1,7 +1,7 @@
 xinge-cordova
 =============
 
-Cordova plugin for Tencent Xinge 2.31
+Cordova plugin for 腾讯信鸽 Tencent Xinge 2.38
 
 1.先注册你的android应用
 =============

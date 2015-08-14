@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="org.apache.cordova.xinge"
-    version="2.31.0">
+    version="2.38.0">
     <name>Xinge</name>
     <description>Cordova Xinge Plugin</description>
     <license>Apache 2.0</license>
@@ -57,9 +57,20 @@
 					<action android:name="com.tencent.android.tpush.action.FEEDBACK" />
 				</intent-filter>
 			</receiver>
-			<service android:exported="true" android:name="com.tencent.android.tpush.service.XGPushService" android:process=":xg_service_v2" />
-			<meta-data android:name="XG_V2_ACCESS_ID" android:value="2100026961" />
-			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="A1M83A42GWGR" />
+			<activity android:name="com.tencent.android.tpush.XGPushActivity" android:exported="true" >
+				 <intent-filter>
+					<!-- for AndroidStudio,please set android:name="android.intent.action"-->
+					 <action android:name="android.intent.action" />
+				 </intent-filter>
+			</activity>
+			<service android:exported="true" android:persistent="true" android:name="com.tencent.android.tpush.service.XGPushService" android:process=":xg_service_v2" />
+			<service android:name="com.tencent.android.tpush.rpc.XGRemoteService" android:exported="true" >
+				<intent-filter>
+					<action android:name="$PACKAGE_NAME.PUSH_ACTION" />
+				</intent-filter>
+			</service>
+			<meta-data android:name="XG_V2_ACCESS_ID" android:value="2100000000" />
+			<meta-data android:name="XG_V2_ACCESS_KEY" android:value="AXXXXXXXXXXXX" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
 			<uses-permission android:name="android.permission.INTERNET" />
@@ -83,16 +94,10 @@
 
         <source-file src="src/android/Xinge.java" target-dir="src/org/apache/cordova/xinge" />
 		<source-file src="src/android/XGPushCordovaReceiver.java" target-dir="src/org/apache/cordova/xinge" />
-		<source-file src="src/android/libs/httpmime-4.1.1.jar" target-dir="libs/" />
-		<source-file src="src/android/libs/mid-sdk-2.10.jar" target-dir="libs/" />
+		<source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs/" />
+		<source-file src="src/android/libs/mid-sdk-2.20.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs/" />
-		<source-file src="src/android/libs/Xg_sdk_v2.31.jar" target-dir="libs/" />
-		<source-file src="src/android/libs/x86/libtpnsSecurity.so" target-dir="libs/x86/" />
-		<source-file src="src/android/libs/x86/libtpnsWatchdog.so" target-dir="libs/x86/" />
-		<source-file src="src/android/libs/mips/libtpnsSecurity.so" target-dir="libs/mips/" />
-		<source-file src="src/android/libs/mips/libtpnsWatchdog.so" target-dir="libs/mips/" />
-		<source-file src="src/android/libs/armeabi-v7a/libtpnsSecurity.so" target-dir="libs/armeabi-v7a/" />
-		<source-file src="src/android/libs/armeabi-v7a/libtpnsWatchdog.so" target-dir="libs/armeabi-v7a/" />
+		<source-file src="src/android/libs/Xg_sdk_v2.38.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/armeabi/libtpnsSecurity.so" target-dir="libs/armeabi/" />
 		<source-file src="src/android/libs/armeabi/libtpnsWatchdog.so" target-dir="libs/armeabi/" />
 
