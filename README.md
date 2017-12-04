@@ -1,18 +1,24 @@
-xinge-cordova
+# xinge-cordova
+
 =============
 
-Cordova plugin for 腾讯信鸽 Tencent Xinge 2.38
+## Cordova plugin for  Tencent Xinge 3.1.2
 
-1.先注册你的android应用
-=============
-http://xg.qq.com/xg/apps/ctr_app/reg
-2.安装插件
-=============
-cordova plugin add org.apache.cordova.xinge
-3.通过js调用插件
-=============
-详见Xinge.js
-configure
-register
-unregister
+    1. Register  Tencent XinGe service.
+
+        http://xg.qq.com/xg/apps/ctr_app/reg
+
+    2. Install plugin
+
+        cordova plugin add https://github.com/zhihuwang/xinge-cordova.git  --variable XG_V2_ACCESS_ID=[access id from tencent] --variable XG_V2_ACCESS_KEY=[access KEY from tencent]
+
+    3.通 Invoke via javascript
+
+## API of Xinge.js
+
+configure:
+
+register:
+
+unregister:
 
