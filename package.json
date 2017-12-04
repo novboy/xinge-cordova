@@ -1,0 +1,40 @@
+{
+    "name": "cordova-plugin-xinge",
+    "version": "3.1.2",
+    "description": "A cordova plugin, a JS version of XinGe SDK",
+    "cordova": {
+      "id": "org.apache.cordova.xinge",
+      "platforms": [
+        "android"
+      ]
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/zhihuwang/xinge-cordova.git"
+    },
+    "keywords": [
+      "cordova",
+      "xinge",
+      "push",
+      "notification",
+      "ecosystem:cordova",
+      "cordova-android"
+    ],
+    "engines": {
+      "cordovaDependencies": {
+          "<2.0.0": {
+            "cordova": ">=3.5.0"
+          },
+          "2.0.0": {
+            "cordova": ">=6.1.0",
+            "cordova-android": ">=6.1.0"
+          }
+      }
+    },
+    "author": "zhihuwang <ahoo@hroze.org>",
+    "license": "Apache-2.0",
+    "bugs": {
+      "url": "https://github.com/zhihuwang/xinge-cordova/issues"
+    },
+    "homepage": "https://github.com/zhihuwang/xinge-cordova#readme"
+  }
