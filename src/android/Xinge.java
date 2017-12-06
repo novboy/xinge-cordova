@@ -85,7 +85,7 @@ public class Xinge extends CordovaPlugin {
     	callbackContext.success();
     	return true;
     }
-    
+
     public boolean onMessage(final CallbackContext callbackContext) {
     	XGPushCordovaReceiver.msgCallbackContext = callbackContext;
     	PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
@@ -106,12 +106,12 @@ public class Xinge extends CordovaPlugin {
     				@Override
     				public void onSuccess(Object data, int flag) {
     					Log.d("TPush", "register sucess:device token is:" + data);
-    					callbackContext.success("{success:true,data:'"+data+"'}");
+    					callbackContext.success("{\"success\":true,\"data\":\""+data+"\"}");
     				}
     				@Override
     				public void onFail(Object data, int errCode, String msg) {
     					Log.d("TPush", "register failed,error code:" + errCode + ",error msg:" + msg);
-    					callbackContext.error("{success:false,errCode:'"+errCode+"',msg:'"+msg+"'}");
+    					callbackContext.error("{\"success\":false,errCode:\""+errCode+"\",msg:\""+msg+"\"}");
     				}
     			});
     	return true;
