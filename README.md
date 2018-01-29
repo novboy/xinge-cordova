@@ -1,8 +1,8 @@
-# xinge-cordova
+# xinge-cordova `Android Only`
 
 =============
 
-## Cordova plugin for  Tencent Xinge 3.1.2
+## Cordova Android plugin for  Tencent Xinge 3.1.2
 
     1. Register  Tencent XinGe service.
 
@@ -16,9 +16,20 @@
 
 ## API of Xinge.js
 
-configure:
+configure: `建议不要在js里面来注册,安装plugin指定即可`
 
+    window['Xinge'].configure( accessId, accessKey,debug,
+            function(data) {
+              console.log("configure success:" + data);
+            }, function(data) {
+              console.log("configure failed:" + data);
+            });
+   
 register:
 
+    window['Xinge'].register(userid,function(token){},function(data){console.log("error:"+data)});
+
 unregister:
+
+    window['Xinge'].unregister(function(data){console.log("success:"+data)},function(data){console.log("error:"+data)}, userid);
 
